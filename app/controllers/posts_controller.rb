@@ -10,12 +10,12 @@ class PostsController < ApplicationController
 
   def up_vote
     @post = Post.increment_counter(:upvote, params[:id])
-    redirect_to post_comments_path(@post)
+    redirect_to :back
   end
 
   def down_vote
     @post = Post.decrement_counter(:downvote, params[:id])
-    redirect_to post_comments_path(@post)
+    redirect_to :back
   end
 
   def new
