@@ -17,7 +17,6 @@ before_filter :authenticate_user!, only: [:new, :create, :destroy]
 
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.user.id = current_user.id
     if @comment.save
       redirect_to post_comments_path(@post)
     else
