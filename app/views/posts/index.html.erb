@@ -1,0 +1,18 @@
+<h1>Posts</h1>
+
+
+<% @posts.each do |post| %>
+  <li><%= link_to post.title, post_comments_path(post)%>
+    <% count = 0%>
+    <% post.comments.each do |comment| %>
+      <% count += 1%>
+  <% end %></br> 
+
+  Comment Count: <%= link_to "#{count} comments", post_comments_path(post)%>
+  <br></br> 
+
+ 
+<% end %>
+
+
+

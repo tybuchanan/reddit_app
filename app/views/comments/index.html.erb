@@ -1,0 +1,24 @@
+<h1>Title: <%= @post.title %></h1>
+User: <%= @user.email %></br>
+Description: <%= @post.description %></br>
+Url: <%= link_to @post.url %>
+<br></br>
+<button type="button" class="btn btn-success"><%= link_to @post.upvote %></button>
+  <%= link_to "Like", "/posts/vote/upvote/#{@post.id}", :class => 'btn btn-info' %>
+  <%= link_to "Dislike", "/posts/vote/downvote/#{@post.id}", :class => 'btn btn-info' %>
+  <button type="button" class="btn btn-danger"><%= link_to @post.downvote %></button>
+<br></br>
+<p>Comments</p>
+<% @comments.each do |comment|%>
+  <%=comment.description%>
+    <%= link_to "Show", post_comment_path(@post, comment), :class => 'btn btn-default' %>
+    <%= link_to "Delete", [@post, comment], method: :delete, data: {confirm: "Are You Sure?"}, :class => 'btn btn-danger' %></br>
+  
+  
+<% end %>
+<br></br>
+<p><%= link_to "Comment On This Item", new_post_comment_path(@post), :class=>"btn btn-info" %>
+</p>
+
+<%= link_to 'Back to post', post_path(@post) %>
+
