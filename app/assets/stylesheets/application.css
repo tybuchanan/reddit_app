@@ -22,3 +22,7 @@ button.btn.btn-danger > a{
 button.btn.btn-success > a{
   color:white;
 }
+
+.navbar {
+  box-shadow: black 0.1em 0.1em 0.2em;
+}
